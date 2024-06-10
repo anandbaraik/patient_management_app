@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import PatientListPage from "./components/Patients/PatientList";
+import WardListPage from "./components/Wards/WardsList";
+import "./styles.css";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Switch,
+} from "react-router-dom";
 
-function App() {
+import HomePage from "./components/Shared/Homepage";
+import AppNavbar from "./components/Shared/Navbar";
+
+export default function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <AppNavbar />
+
+      <Routes>
+        <Route path="/" exact element={<HomePage />} />
+        <Route path="/patients" element={<PatientListPage />} />
+        <Route path="/wards" element={<WardListPage />} />
+      </Routes>
     </div>
   );
 }
-
-export default App;
