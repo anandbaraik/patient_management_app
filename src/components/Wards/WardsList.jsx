@@ -131,25 +131,33 @@ const WardListPage = () => {
           />
         ))}
       </div>
-      <EditWardBox
-        show={showEditPopup}
-        onHide={() => {
-          setShowEditPopup(false);
-          setInputErrors({});
-        }}
-        onSubmit={handleEditSubmit}
-        ward={selectedWard}
-        inputErrors={inputErrors}
-      />
-      <EditWardBox
-        show={showAddPopup}
-        onHide={() => {
-          setShowAddPopup(false);
-          setInputErrors({});
-        }}
-        onSubmit={handleAddSubmit}
-        inputErrors={inputErrors}
-      />
+      {
+        showEditPopup ? (
+          <EditWardBox
+            show={showEditPopup}
+            onHide={() => {
+              setShowEditPopup(false);
+              setInputErrors({});
+            }}
+            onSubmit={handleEditSubmit}
+            ward={selectedWard}
+            inputErrors={inputErrors}
+          />
+        ) : null
+      }
+      {
+        showAddPopup ? (
+          <EditWardBox
+            show={showAddPopup}
+            onHide={() => {
+              setShowAddPopup(false);
+              setInputErrors({});
+            }}
+            onSubmit={handleAddSubmit}
+            inputErrors={inputErrors}
+          />
+        ) : null
+      }
     </div>
   );
 };

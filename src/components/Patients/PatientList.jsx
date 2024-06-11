@@ -133,25 +133,36 @@ const PatientListPage = () => {
           />
         ))}
       </div>
-      <EditPatientBox
-        show={showEditPopup}
-        onHide={() => {
-          setShowEditPopup(false);
-          setInputErrors({});
-        }}
-        onSubmit={handleEditSubmit}
-        patient={selectedPatient}
-        inputErrors={inputErrors}
-      />
-      <EditPatientBox
-        show={showAddPopup}
-        onHide={() => {
-          setShowAddPopup(false);
-          setInputErrors({});
-        }}
-        onSubmit={handleAddSubmit}
-        inputErrors={inputErrors}
-      />
+
+      {
+        showEditPopup ? (
+          <EditPatientBox
+            show={showEditPopup}
+            onHide={() => {
+              setShowEditPopup(false);
+              setInputErrors({});
+            }}
+            onSubmit={handleEditSubmit}
+            patient={selectedPatient}
+            inputErrors={inputErrors}
+          />
+        ) : null
+      }
+
+      {
+        showAddPopup ? (
+          <EditPatientBox
+            show={showAddPopup}
+            onHide={() => {
+              setShowAddPopup(false);
+              setInputErrors({});
+            }}
+            onSubmit={handleAddSubmit}
+            inputErrors={inputErrors}
+          />
+        ) : null
+      }
+
     </div>
   );
 };
